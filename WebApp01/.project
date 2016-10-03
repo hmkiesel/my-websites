@@ -40,6 +40,11 @@
 			<location>/Users/hmkiesel/Desktop/java morse/src/dot.jpg</location>
 		</link>
 		<link>
+			<name>WebContent/white</name>
+			<type>1</type>
+			<location>/Users/hmkiesel/Desktop/java morse/src/white</location>
+		</link>
+		<link>
 			<name>src/dot.jpg</name>
 			<type>1</type>
 			<location>/Users/hmkiesel/Desktop/java morse/src/dot.jpg</location>

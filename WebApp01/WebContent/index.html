@@ -3,14 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>EasyMorse.com</title>
+<title>MorseCrack.com</title>
 </head>
 <body>
-<h1 style="color:green;margin-left:10px;"> Let's learn Morse code!</h1>
+<h1 style = "color:MidnightBlue; margin-left:10px; font: 24px arial, sans-serif"> Let's learn Morse code!</h1>
 <script>
-	var codes = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..","-----",".----","..---","...--","....-",".....","-....","--...","---..""----."];
+	var codes = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."];
 	var characters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"];
-
+	var points = 0;
 </script>
 <form>
 <div>
@@ -19,20 +19,34 @@
 <div id="container" style="position:relative; width:150px; height:150px; background:black;">
 	<div id="animate" style="position:absolute; width:146px; height:146px; left:2px; top:2px; background:white;">
 		<img id="dot" src="dot.jpg" style="position:absolute; width:140px; left:3px; top:3px; display:none" alt = "error"/>
+		<img id = "white" src="white" style="position:absolute; width:140px; height:140px; left:3px; top:3px; display:none" alt = "error"/>
 		<script>
 			function morse() {
 				var index = Math.floor(Math.random() * 35);
-				var code = codes[index];
-				var img = document.getElementById('dot');
-				for(var i = 0; i < code.length; i++){
-					if(code.charAt(i) == "."){
+				//var code1 = codes[index];
+				code1 = "..";
+				alert(code1);
+				var img = document.getElementById("dot");
+				var white = document.getElementById("white");
+				for(var i = 0; i < code1.length; i++){
+					alert("inside for");
+					white.style.display = "none";
+					img.style.display = "none";
+					if(code1.charAt(i) == ".") {
+						alert("inside if");
 						//document.getElementById("dot").style.display="block";
-					    setTimeout(function(){img.style.visibility = 'visible';},500);
-						setTimeout(function(){img.style.visibility = 'hidden';},500);
+						alert(code1.charAt(i));
+						img.style.display = "block";
+						setTimeout(function(){img.style.display = "none"},1000);
+						//setTimeout(function(){img.style.display = "none"},1000};
 					}
-					else if(code.charAt(i) == "-"){
-						setTimeout(function(){img.style.visibility = 'visible';},500);
-						setTimeout(function(){img.style.visibility = 'hidden';},1000);
+					else if(code1.charAt(i) == "-"){
+						//alert("inside else")
+						img.style.display = "block";
+						setTimeout(function(){img.style.display = "none"},2000);
+						//delay(1000);
+						//img.style.display = "none";
+						//delay(500);
 					}
 				}
 			}
@@ -42,7 +56,21 @@
 </div>
 
 <input style="position:absolute; top:50%; left:5%; width:10%;" type = "text" id="userInput"/>
-<input style = "position:absolute; top:50%; left:20%; width:10%;" type="submit" value="submit" onclick="morse.check();"/>
+<script> 
+var input = document.getElementById("userInput");
+function check(input){
+	if(characters[index] == input || characters[index].toUpperCase() == input){
+		document.write("good Job!");
+		points++;
+		morse();
+	}
+	else{
+		document.write("wrong. the correct answer is: " + characters[index]);
+		morse();
+	}
+}
+</script>
+<input style = "position:absolute; top:50%; left:20%; width:10%;" type="submit" value="submit" onclick="check('input');"/>
 </div>
 </form>
 </body>
